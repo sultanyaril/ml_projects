@@ -25,3 +25,10 @@ The first course I complited on kaggle and the first certificate (yay! right bef
 
 The content is actually mid because I wrote only a few lines of code and they were very simple, but for basic understanding, it is enough, I guess. I liked RL very much and would like to do something more about it; perhaps, I should try watching lectures of London University which were recommended in the last lesson. 
 
+## [RL course by David Silver](https://www.youtube.com/watch?v=2pWv7GOvuf0&list=PLqYmG7hTraZDM-OYHWgPebj2MfCFzFObQ) - Feb 23, 2023
+![](https://github.com/sultanyaril/kaggles/blob/main/david%20silver's%20rl%20course/easy21_illustration.jpg)
+As I suggested, started watching great course from University College London. Unfortunately, had to make a little pause because of the beggining of a new term. However, I watched 4 lectures of the course just before that, and only month later started doing assignment.
+
+It took time to finish it, but I memorized concepts we met on the lectures and done a great job. After finishing assignment, I wanted to compare my work to the results of other students and find out that there was a little done dilligently: some of the had errors as value function being more than 1 (while it cannot be more than reward), too big MSE, not checking behavior of TD function on lambda = 1, etc. I believe my results are correct. However, I have to admit that copied answers to the last 5 open questions from [here](https://github.com/kvfrans/Easy21-RL) 🙈. Other parts are done by me and sometimes code is too sloppy, lacks routine and readability, but the most important thing is results - pictures.
+
+Now, I unlocked next lectures for me, and will spend time to watch them parallel to my study at University. Also, attached notes of the lectures.
