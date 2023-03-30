@@ -33,6 +33,6 @@ It took time to finish it, but I memorized concepts we met on the lectures and d
 
 Now, I unlocked next lectures for me, and will spend time to watch them parallel to my study at University. Also, attached notes of the lectures.
 
-## - March 30, 2023
+## March 30, 2023
 
 Took some time to complete the course because of university. Managed to complete all lectures and write the final paper, scored 28/40 what is not bad for a person who wasn't preparing (but used notes when writing). Now, I want to try to apply this knowledge in creating some reinforcement learning model of soccer. Hope, it will work. Hope, it will not take half a year.
