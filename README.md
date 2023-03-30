@@ -32,3 +32,7 @@ As I suggested, started watching great course from University College London. Un
 It took time to finish it, but I memorized concepts we met on the lectures and done a great job. After finishing assignment, I wanted to compare my work to the results of other students and find out that there was a little done dilligently: some of the had errors as value function being more than 1 (while it cannot be more than reward), too big MSE, not checking behavior of TD function on lambda = 1, etc. I believe my results are correct. However, I have to admit that copied answers to the last 5 open questions from [here](https://github.com/kvfrans/Easy21-RL) 🙈. Other parts are done by me and sometimes code is too sloppy, lacks routine and readability, but the most important thing is results - pictures.
 
 Now, I unlocked next lectures for me, and will spend time to watch them parallel to my study at University. Also, attached notes of the lectures.
+
+## - March 30, 2023
+
+Took some time to complete the course because of university. Managed to complete all lectures and write the final paper, scored 28/40 what is not bad for a person who wasn't preparing (but used notes when writing). Now, I want to try to apply this knowledge in creating some reinforcement learning model of soccer. Hope, it will work. Hope, it will not take half a year.
