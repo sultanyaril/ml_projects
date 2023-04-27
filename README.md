@@ -36,3 +36,14 @@ Now, I unlocked next lectures for me, and will spend time to watch them parallel
 ## March 30, 2023
 
 Took some time to complete the course because of university. Managed to complete all lectures and write the final paper, scored 28/40 what is not bad for a person who wasn't preparing (but used notes when writing). Now, I want to try to apply this knowledge in creating some reinforcement learning model of soccer. Hope, it will work. Hope, it will not take half a year.
+
+## Flappy Bird RL - April 27, 2023
+![](https://github.com/sultanyaril/kaggles/blob/main/flappy%20bird%20rl/gifs/env_simple.gif)
+
+My first RL project! After completion of David Silver's course, I have decided to apply my knowledge and found 'gym' where flappy bird environment was present. I thought that it might be fun to train an agent who can play this game. Results are not impressive but it works.
+
+I [have](https://github.com/markub3327/flappy-bird-gymnasium) [used](https://github.com/yenchenlin/DeepLearningFlappyBird) a [lot](https://github.com/Talendar/flappy-bird-gym) of [different](https://github.com/samboylan11/flappy-bird-gym) people's gits and very thankful for their repositories. 
+
+What I have done contains: models trained on 2 features (vertical and horizontal distance to the next bar), 12 features (position of bird and position of next 3 bars) and RGB features (whole scene). Unfortunately, I couldn't train last one because it uses pygame and my PC is not that good to render it fast. Then, I have trained model on 8 million steps (4 million with EpsilonGreedy, where epsilon goes down from 0.1 to 0.001, and 4 million on the resulted policy). The last model survives for about 200 scores in mean, but covariance is still too big and it can die anytime. Also, there you can find two NNs trained on 1 millions steps to compare how good 12 features is comparing it to 2. Finally, I could have worked more to reduce variance and train it more to get more fascinating results but it would take too much time.
+
+Now, I have introduced myself to 'gym' environment and I really want to try to write everything all by myself. Moreover, I want to try to train model which plays with itself.
