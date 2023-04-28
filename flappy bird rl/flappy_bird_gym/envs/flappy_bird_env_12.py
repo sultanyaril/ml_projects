@@ -26,11 +26,15 @@ numerical information about the game's state as observations.
 """
 
 from typing import Dict, Optional, Tuple, Union
+from PIL import Image
 
 import gym
 import numpy as np
 import pygame
 import time
+import glob
+import os
+import re
 
 from flappy_bird_gym.envs.game_logic import (
     PIPE_HEIGHT,
@@ -82,6 +86,7 @@ class FlappyBirdEnv12(gym.Env):
         bird_color: str = "yellow",
         pipe_color: str = "green",
         background: Optional[str] = "day",
+        make_gif: bool = False
     ) -> None:
         self.action_space = gym.spaces.Discrete(2)
         self.observation_space = gym.spaces.Box(
@@ -98,6 +103,9 @@ class FlappyBirdEnv12(gym.Env):
         self._bird_color = bird_color
         self._pipe_color = pipe_color
         self._bg_type = background
+
+        self._make_gif = make_gif
+        self._display_cnt = 0
 
     def _get_observation(self):
         pipes = []
@@ -207,10 +215,36 @@ class FlappyBirdEnv12(gym.Env):
 
         self._renderer.draw_surface(show_score=True)
         self._renderer.update_display()
+
+        if self._make_gif:
+            if not os.path.exists('tmp_images'):
+                # Create a new directory because it does not exist
+                os.makedirs('tmp_images')
+            pygame.image.save(self._renderer.display, f"tmp_images/screenshot{self._display_cnt}.png")
+            self._display_cnt += 1
+
         time.sleep(1 / 30)
 
     def close(self):
         """Closes the environment."""
+        if self._make_gif:
+            frames = []
+            imgs = sorted(glob.glob("tmp_images/*.png"),key=lambda var:[int(x) if x.isdigit() else x for x in re.findall(r'[^0-9]|[0-9]+', var)])
+            for i in imgs:
+                new_frame = Image.open(i)
+                frames.append(new_frame)
+
+            # Save into a GIF file that loops forever
+            frames[0].save('gifs/env_12.gif',
+                           append_images=frames[1:],
+                           save_all=True,
+                           duration=40, loop=0)
+
+            for i, frame in enumerate(frames):
+                frame.close()
+                os.remove(imgs[i])
+            os.rmdir('tmp_images')
+
         if self._renderer is not None:
             pygame.display.quit()
             pygame.quit()

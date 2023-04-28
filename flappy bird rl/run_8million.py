@@ -40,12 +40,12 @@ if __name__ == '__main__':
     make_gif=False
     background='night'
 
-    if len(sys.argv) == 2:
-        make_gif = sys.argv[1]
-    elif len(sys.argv) == 3:
+    if len(sys.argv) >= 2:
+        make_gif = (sys.argv[1]=='True')
+    if len(sys.argv) == 3:
         background = sys.argv[2]
 
-    env = flappy_bird_gym.make("FlappyBird-12-v0", background=background)
+    env = flappy_bird_gym.make("FlappyBird-12-v0", make_gif=make_gif, background=background)
     obs = env.observation_space.shape[0]
     actions = env.action_space.n
 

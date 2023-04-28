@@ -1,1 +1,4 @@
 disaster\ prediction\ by\ tweets/glove.840B.300d.pkl
+.ipynb_checkpoints
+.idea
+__pycache__
