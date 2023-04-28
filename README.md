@@ -40,7 +40,7 @@ Took some time to complete the course because of university. Managed to complete
 ## Flappy Bird RL - April 27, 2023
 ![](https://github.com/sultanyaril/kaggles/blob/main/flappy%20bird%20rl/gifs/env_simple.gif)
 ![](https://github.com/sultanyaril/kaggles/blob/main/flappy%20bird%20rl/gifs/env_12.gif)
-![](https://github.com/sultanyaril/kaggles/blob/main/flappy%20bird%20rl/gifs/big_score.png =288x512)
+<img src="(https://github.com/sultanyaril/kaggles/blob/main/flappy%20bird%20rl/gifs/big_score.png" width="288" height="512">
 
 My first RL project! After completion of David Silver's course, I have decided to apply my knowledge and found 'gym' where flappy bird environment was present. I thought that it might be fun to train an agent who can play this game. Results are not impressive but it works.
 
