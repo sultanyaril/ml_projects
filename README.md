@@ -52,7 +52,7 @@ Now, I have introduced myself to 'gym' environment and I really want to try to w
 
 ## Tennis RL - May 19, 2023
 
-HERE NEED PICTURES!!!
+![](https://github.com/sultanyaril/kaggles/blob/main/tennis%20rl/robot_vs_god.gif)
 
 This one is 100% made by me and every line belongs to me (to the extent that code can belong to someone). Actually, learned a lot of interesting things and faced different problems while implementing code. 
 
