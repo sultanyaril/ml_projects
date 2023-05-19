@@ -49,3 +49,32 @@ I [have](https://github.com/markub3327/flappy-bird-gymnasium) [used](https://git
 What I have done contains: models trained on 2 features (vertical and horizontal distance to the next bar), 12 features (position of bird and position of next 3 bars) and RGB features (whole scene). Unfortunately, I couldn't train last one because it uses pygame and my PC is not that good to render it fast. Then, I have trained model on 8 million steps (4 million with EpsilonGreedy, where epsilon goes down from 0.1 to 0.001, and 4 million on the resulted policy). The last model survives for about 200 scores in mean, but covariance is still too big and it can die anytime. Also, there you can find two NNs trained on 1 millions steps to compare how good 12 features is comparing it to 2. Finally, I could have worked more to reduce variance and train it more to get more fascinating results but it would take too much time.
 
 Now, I have introduced myself to 'gym' environment and I really want to try to write everything all by myself. Moreover, I want to try to train model which plays with itself.
+
+## Tennis RL - May 19, 2023
+
+HERE NEED PICTURES!!!
+
+This one is 100% made by me and every line belongs to me (to the extent that code can belong to someone). Actually, learned a lot of interesting things and faced different problems while implementing code. 
+
+This code includes Pong environment written on gym. While writing the game, I faced problem that ball stuck inside of the paddle but it was solved by allowing it to bounce only once (checks if ball's velocity is towards a paddle). Pong environment is very simple: ball have an elastic collision with paddle with conversation of energy and there's no randomness and velocity do not increase. Rewards system is a little bit complicated for me to custom it when training: 5 points for hit of left paddle and 1 point for scoring of left paddle, and negative values for the same actions of right paddle. 
+
+Also, I'm happy that I made it as an executable library and it can be run easily by writing:
+```
+python3 -m tennis_gym [human | robot | god] [human | robot | god]
+```
+'human' is a user which can move paddle by 'W' and 'S' or 'Up' and 'Down' depending on the side; 'robot' is an agent which works using the model I trained; 'god' is never-losing agent which moves after the ball.
+
+Now, about model. If writing of the environment took me day or two, training model had 2 weeks of my life. I used DQNAgent and implemented it as a class with all necessary routine. One thing I knew when implementing of the project: there is double model (model and target_model) system which helps with convergence (proved by paper). Also, I knew how much torch is faster than keras. Let's discuss it a little more: first my model was made using keras and it worked really slow, 10000 episodes would have taken 2 days to train. But, it is not an only problem: memory leaks (!) when predicting actions. So, it was decided to use torch instead and I'm happy that I did it because it takes only 2.5 hours to train on 10000 episodes.
+
+The end result was made by training DQNAgent on playing with itself for four times on 10000 episodes with Lineary Annealing e-greedy Q-policy. It learned on 8 features: ball's x position, ball's y position, ball's x velocity, ball's y velocity, player1's x position, player1's y position, player2's x position, player2's y position. There were 3 actions: move up, move down, stay. About rewards, agent is rewarded 100000 for hitting the ball and penalized 20000 for conceding a goal. Values chosen to be big for better propogation (need to checked if it's true). As a result, on 40000 episodes I've gotten a model which draws all 10000 episodes played with god, what I believe is the best result that could have been produced (code is in test_agent.py).
+
+One interesting thing I implemented: as environment is symmetric, I trained only one Neural Network by mirroring environment to calculate right paddle's action, so it made training much faster by twicing the number of steps that it can learn on.
+
+Things to try (maybe):
+1. Try to train it using Convolutional NN on the whole field;
+2. Check how the average number of steps changes while training because I saw that number of drawn games can dramatically lower in just 500 episodes (from 80 to 20), but maybe average number of steps is increasing;
+3. Use different reward. I learned that reward is the most crucial part of RL model. Perhaps using 'vanilla' reward of 1 for scoring and penalty of 1 for conceding can provide a result but it will require more steps.
+
+My next goal was to implement football environment (2D for now) and try to teach footballers to play with each other to score goals. Now, I see that 'sparse' reward of 1 for scoring and 1 penalty for conceding can be a problem. Moreover, I struggled a lot with some basic concepts when implementing solution for Pong so I need to see more examples of RL implementations and models. I believe that before tackling football, I need to read Maxim Lapan's book on RL. So, it will be my next destination.
+
+
