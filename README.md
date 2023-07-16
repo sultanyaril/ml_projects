@@ -1,5 +1,5 @@
-# kaggles
-My attempts to do something on kaggle
+# My ML Projects
+Initially it was 'My attempts to do something on kaggle' but it has become more than that
 
 ## Playground s3e2 - Jan 10, 2023
 Task was to predict if person will have a stroke. Used DenseNetwork and rewised basics of Deep Learning. Beat benchmark and that's all. Didn't try to tune parameters because didn't wanted to. My best submission on public wart was 87% accuracy. 
